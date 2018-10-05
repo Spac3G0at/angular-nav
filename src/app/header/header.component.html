@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+
+  <a href="#" class="navbar-brand d-flex w-50 mr-auto">
+    <span class="navbar-brand">MyShop</span>
+    <span class="navbar-text d-none d-lg-inline">Trouvez des produits en ligne</span>
+  </a>
+
+  <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="navbar-collapse w-100" [ngbCollapse]="!isCollapsed">
+    <ul class="navbar-nav mr-auto w-50 justify-content-center">
+
+      <!-- 
+        Pour que la navbar se referme lorsque l'on selectionne un lien,
+        j'ai ajouté le '!isCollapsed' au click, et une fonction de redirection
+        (car sinon elle se ferme sans que le lien n'ait été activé)
+        On doit donc renseigner le routerLink dans la fonction redirect(link)
+      -->
+
+      <li class="nav-item">
+        <a class="nav-link" 
+        (click)="isCollapsed = !isCollapsed; 
+        redirect('home')" 
+        routerLink="home" 
+        routerLinkActive="active">Accueil</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" 
+        (click)="isCollapsed = !isCollapsed; 
+        redirect('liste')" 
+        routerLink="liste" 
+        routerLinkActive="active">Liste des produits</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" 
+        (click)="isCollapsed = !isCollapsed; 
+        redirect('squad')" 
+        routerLink="squad" 
+        routerLinkActive="active">Equipe</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" 
+        (click)="isCollapsed = !isCollapsed; 
+        redirect('contact')" 
+        routerLink="contact" 
+        routerLinkActive="active">Contact</a>
+      </li>
+      <!-- <li class="nav-item" ngbDropdown>
+        <a class="nav-link" ngbDropdownToggle href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li> -->
+    </ul>
+    <form class="form-inline justify-content-end">
+      <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success m-2" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
